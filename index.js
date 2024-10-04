@@ -19,7 +19,7 @@ const redisClient = redis.createClient({
 });
 redisClient.connect();
 
-module.exports = async function(req, res) {
+export default async({ req, res, log, error })=> {
     try {
         const userId = req.payload.userId;      // Get userId from request payload
         const phoneNumber = req.payload.phone;  // Get phone number from request payload
@@ -38,10 +38,14 @@ module.exports = async function(req, res) {
             from: process.env.TWILIO_PHONE_NUMBER, // Environment variable for Twilio phone number
             to: phoneNumber
         });
-
+        log('Everything is fine',otp);
         return res.json({ success: true, message: 'OTP sent via SMS successfully.' });
     } catch (error) {
         console.error('Error:', error);
+        log('Error:',error);
+
+        // If something goes wrong, log an error
+        error('Hello, Errors!');
         return res.json({ success: false, message: 'Failed to send OTP', error });
     }
 };
