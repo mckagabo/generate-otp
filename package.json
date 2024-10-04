@@ -1,0 +1,28 @@
+{
+  "name": "generate-otp",
+  "version": "1.0.0",
+  "description": "generating otp for viyaride",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mckagabo/generate-otp.git"
+  },
+  "keywords": [
+    "otp",
+    "generate"
+  ],
+  "author": "mckagabo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mckagabo/generate-otp/issues"
+  },
+  "homepage": "https://github.com/mckagabo/generate-otp#readme",
+  "dependencies": {
+    "node-appwrite": "^14.1.0",
+    "redis": "^4.7.0",
+    "twilio": "^5.3.3"
+  }
+}
